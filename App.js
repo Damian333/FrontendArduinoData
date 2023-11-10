@@ -19,6 +19,11 @@ const App = () => {
     };
 
     fetchData();
+
+    const intervalId = setInterval(fetchData, 5000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
   }, []);
 
   const renderPairs = () => {
